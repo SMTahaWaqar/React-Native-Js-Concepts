@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {
   Button,
   FlatList,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -30,17 +31,79 @@ const App = () => {
       id: 5,
       name: 'Ali',
     },
+    {
+      id: 3,
+      name: 'Arham',
+    },
+    {
+      id: 4,
+      name: 'Maaz',
+    },
+    {
+      id: 5,
+      name: 'Ali',
+    },
+    {
+      id: 3,
+      name: 'Arham',
+    },
+    {
+      id: 4,
+      name: 'Maaz',
+    },
+    {
+      id: 5,
+      name: 'Ali',
+    },
+    {
+      id: 3,
+      name: 'Arham',
+    },
+    {
+      id: 4,
+      name: 'Maaz',
+    },
+    {
+      id: 5,
+      name: 'Ali',
+    },
+    {
+      id: 3,
+      name: 'Arham',
+    },
+    {
+      id: 4,
+      name: 'Maaz',
+    },
+    {
+      id: 5,
+      name: 'Ali',
+    },
+    {
+      id: 3,
+      name: 'Arham',
+    },
+    {
+      id: 4,
+      name: 'Maaz',
+    },
+    {
+      id: 5,
+      name: 'Karl',
+    },
+    {
+      id: 5,
+      name: 'Marx',
+    },
   ];
   return (
     <View>
       <Text style={{fontSize: 30}}>FlatList in React Native</Text>
-      <FlatList
-        data={data}
-        renderItem={({item}) => (
-          <Text style={styles.textContainer}>{item.name}</Text>
-        )}
-        keyExtractor={item => item.id}
-      />
+      <ScrollView style={{marginBottom: 50}}>
+        {data.map(user => (
+          <Text style={styles.textContainer}>{user.name}</Text>
+        ))}
+      </ScrollView>
     </View>
   );
 };
