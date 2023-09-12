@@ -98,26 +98,27 @@ const App = () => {
   ];
   return (
     <View>
-      <Text style={{fontSize: 30}}>FlatList in React Native</Text>
-      <ScrollView style={{marginBottom: 50}}>
+      <Text style={{fontSize: 30}}>Grid with Dynamic Data</Text>
+      <View style={{flex: 1, flexDirection: 'row', flexWrap: 'wrap'}}>
         {data.map(user => (
-          <Text style={styles.textContainer}>{user.name}</Text>
+          <Text style={styles.item}>{user.name}</Text>
         ))}
-      </ScrollView>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  textContainer: {
-    fontSize: 18,
-    color: 'blue',
-    backgroundColor: '#dffdff',
-    borderWidth: 2,
-    borderColor: 'black',
-    borderRadius: 15,
-    margin: 10,
-    padding: 10,
+  item: {
+    fontSize: 25,
+    backgroundColor: 'blue',
+    color: 'white',
+    margin: 5,
+    padding: 5,
+    width: 120,
+    height: 120,
+    textAlignVertical: 'center',
+    textAlign: 'center',
   },
 });
 
