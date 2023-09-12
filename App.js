@@ -1,13 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Button,
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 
 const App = () => {
   const data = [
@@ -31,79 +23,19 @@ const App = () => {
       id: 5,
       name: 'Ali',
     },
-    {
-      id: 3,
-      name: 'Arham',
-    },
-    {
-      id: 4,
-      name: 'Maaz',
-    },
-    {
-      id: 5,
-      name: 'Ali',
-    },
-    {
-      id: 3,
-      name: 'Arham',
-    },
-    {
-      id: 4,
-      name: 'Maaz',
-    },
-    {
-      id: 5,
-      name: 'Ali',
-    },
-    {
-      id: 3,
-      name: 'Arham',
-    },
-    {
-      id: 4,
-      name: 'Maaz',
-    },
-    {
-      id: 5,
-      name: 'Ali',
-    },
-    {
-      id: 3,
-      name: 'Arham',
-    },
-    {
-      id: 4,
-      name: 'Maaz',
-    },
-    {
-      id: 5,
-      name: 'Ali',
-    },
-    {
-      id: 3,
-      name: 'Arham',
-    },
-    {
-      id: 4,
-      name: 'Maaz',
-    },
-    {
-      id: 5,
-      name: 'Karl',
-    },
-    {
-      id: 5,
-      name: 'Marx',
-    },
   ];
   return (
     <View>
-      <Text style={{fontSize: 30}}>Grid with Dynamic Data</Text>
-      <View style={{flex: 1, flexDirection: 'row', flexWrap: 'wrap'}}>
-        {data.map(user => (
-          <Text style={styles.item}>{user.name}</Text>
-        ))}
-      </View>
+      <Text style={{fontSize: 30}}>Component in FlatList</Text>
+      <FlatList
+        data={data}
+        renderItem={({item}) => (
+          <View>
+            <Text>{item.id}</Text>
+            <Text>{item.name}</Text>
+          </View>
+        )}
+      />
     </View>
   );
 };
