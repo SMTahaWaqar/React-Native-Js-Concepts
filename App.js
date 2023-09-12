@@ -1,17 +1,29 @@
-import React from 'react';
-import {Button, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 
 const App = () => {
-  const fruit = () => {
-    console.warn('Fucntion called');
-  };
-
+  const [name, setName] = useState();
   return (
     <View>
-      <Text style={{fontSize: 30}}>Button And OnPress Event</Text>
-      <Button title="On Press" onPress={fruit} color={'black'} />
+      <Text style={{fontSize: 30}}>Handle Text Input</Text>
+      <Text style={{fontSize: 30}}>Name: {name}</Text>
+      <TextInput
+        style={styles.textInput}
+        placeholder="Enter your name"
+        onChangeText={text => setName(text)}
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  textInput: {
+    fontSize: 18,
+    color: 'red',
+    borderWidth: 2,
+    borderColor: 'blue',
+    margin: 10,
+  },
+});
 
 export default App;
