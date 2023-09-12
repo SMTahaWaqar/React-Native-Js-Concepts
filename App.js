@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useState} from 'react';
 import {Button, Text, View} from 'react-native';
 import {Login} from './components/Login';
+import {Home} from './components/Home';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -29,14 +30,6 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
-
-const Home = () => {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{fontSize: 30}}>Home Screen</Text>
-    </View>
   );
 };
 
