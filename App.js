@@ -1,61 +1,39 @@
 /* eslint-disable react-native/no-inline-styles */
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useState} from 'react';
-import {FlatList, SectionList, StyleSheet, Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
 
+const Stack = createNativeStackNavigator();
 const App = () => {
-  const data = [
-    {
-      id: 1,
-      name: 'Taha',
-      data: ['Js', 'Python', 'Java'],
-    },
-    {
-      id: 2,
-      name: 'Umer',
-      data: ['Js', 'Python', 'Java'],
-    },
-    {
-      id: 3,
-      name: 'Arham',
-      data: ['Js', 'Python', 'Java'],
-    },
-    {
-      id: 4,
-      name: 'Maaz',
-      data: ['Js', 'Python', 'Java'],
-    },
-    {
-      id: 5,
-      name: 'Ali',
-      data: ['Js', 'Python', 'Java'],
-    },
-  ];
   return (
-    <View>
-      <Text style={{fontSize: 30}}>Section List in React Native</Text>
-      <SectionList
-        sections={data}
-        renderItem={({item}) => <Text style={{fontSize: 25}}>{item}</Text>}
-        renderSectionHeader={({section: {name}}) => (
-          <Text style={{fontSize: 25, color: 'red'}}>{name}</Text>
-        )}
-      />
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const Home = () => {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={{fontSize: 30}}>Home Screen</Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  item: {
-    fontSize: 25,
-    backgroundColor: 'blue',
-    color: 'white',
-    margin: 5,
-    padding: 5,
-    width: 120,
-    height: 120,
-    textAlignVertical: 'center',
-    textAlign: 'center',
-  },
-});
+const Login = props => {
+  return (
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={{fontSize: 30}}>Login Screen</Text>
+      <Button
+        title="Go to Home Page"
+        onPress={() => props.navigation.navigate('Home')}
+      />
+    </View>
+  );
+};
 
 export default App;
