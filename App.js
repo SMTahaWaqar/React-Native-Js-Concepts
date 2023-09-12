@@ -1,65 +1,60 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {
+  Button,
+  FlatList,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 const App = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [display, setDisplay] = useState(false);
-  const resetFormData = () => {
-    setDisplay(false);
-    setName('');
-    setEmail('');
-    setPassword('');
-  };
+  const data = [
+    {
+      id: 1,
+      name: 'Taha',
+    },
+    {
+      id: 2,
+      name: 'Umer',
+    },
+    {
+      id: 3,
+      name: 'Arham',
+    },
+    {
+      id: 4,
+      name: 'Maaz',
+    },
+    {
+      id: 5,
+      name: 'Ali',
+    },
+  ];
   return (
     <View>
-      <Text style={{fontSize: 30}}>Simple Form In React Native</Text>
-      <TextInput
-        placeholder="Enter your name"
-        value={name}
-        style={styles.textInput}
-        onChangeText={text => setName(text)}
+      <Text style={{fontSize: 30}}>FlatList in React Native</Text>
+      <FlatList
+        data={data}
+        renderItem={({item}) => (
+          <Text style={styles.textContainer}>{item.name}</Text>
+        )}
+        keyExtractor={item => item.id}
       />
-      <TextInput
-        placeholder="Enter your email"
-        value={email}
-        style={styles.textInput}
-        onChangeText={text => setEmail(text)}
-      />
-      <TextInput
-        placeholder="Enter a password"
-        value={password}
-        secureTextEntry={true}
-        style={styles.textInput}
-        onChangeText={text => setPassword(text)}
-      />
-      <View style={{marginBottom: 10}}>
-        <Button
-          color={'green'}
-          title="Print Details"
-          onPress={() => setDisplay(true)}
-        />
-      </View>
-      <Button title="Clear Details" onPress={resetFormData} />
-      {display ? (
-        <View>
-          <Text style={{fontSize: 15}}>User Name is : {name}</Text>
-          <Text style={{fontSize: 15}}>Email : {email}</Text>
-          <Text style={{fontSize: 15}}>Password : {password}</Text>
-        </View>
-      ) : null}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  textInput: {
+  textContainer: {
     fontSize: 18,
     color: 'blue',
+    backgroundColor: '#dffdff',
     borderWidth: 2,
-    borderColor: 'blue',
+    borderColor: 'black',
+    borderRadius: 15,
     margin: 10,
+    padding: 10,
   },
 });
 
