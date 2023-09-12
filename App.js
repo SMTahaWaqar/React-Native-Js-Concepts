@@ -1,14 +1,23 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
+import UniversityData from './components/UniversityData';
 
 const App = () => {
   return (
     <View>
-      <Text style={{fontSize: 30}}>Hello Text Component</Text>
-      <Text style={{fontSize: 20}}>Hello Second Text Component</Text>
-      <Button title="Press Here"></Button>
-      <Text style={{fontSize: 15}}>Hello Third Text Component</Text>
-      <Button title="Press This One Too"></Button>
+      <UniversityData />
+      <Text style={{fontSize: 30}}>Components</Text>
+      <UserData />
+    </View>
+  );
+};
+
+const UserData = () => {
+  return (
+    <View>
+      <Text style={{fontSize: 15}}>Name : Taha</Text>
+      <Text style={{fontSize: 15}}>Age : 21</Text>
+      <Text style={{fontSize: 15}}>Email : taha@developer.com</Text>
     </View>
   );
 };
